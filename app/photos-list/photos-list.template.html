@@ -1,0 +1,43 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      <p>
+        Search:
+        <input ng-model="query" />
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul class="photos">
+        <li ng-repeat="photo in pageObject.items | filter:query" class="thumbnail">
+
+            <img ng-src="{{photo.thumbnailUrl}}" class="thumb" />
+            <p class="title">{{photo.title}}</p>
+        </li>
+      </ul>
+
+      <ul ng-if="pageObject.pager.pages.length" class="pagination">
+        <li ng-class="{disabled:pageObject.pager.currentPage === 1}">
+          <a ng-click="pageObject.setPage(1)">First</a>
+        </li>
+        <li ng-class="{disabled:pageObject.pager.currentPage === 1}">
+          <a ng-click="pageObject.setPage(pageObject.pager.currentPage - 1)">Previous</a>
+        </li>
+        <li ng-repeat="page in pageObject.pager.pages" ng-class="{active:pageObject.pager.currentPage === page}">
+          <a ng-click="pageObject.setPage(page)">{{page}}</a>
+        </li>
+        <li ng-class="{disabled:pageObject.pager.pageObject === pageObject.pager.totalPages}">
+          <a ng-click="pageObject.setPage(pageObject.pager.currentPage + 1)">Next</a>
+        </li>
+        <li ng-class="{disabled:pageObject.pager.currentPage === pageObject.pager.totalPages}">
+          <a ng-click="pageObject.setPage(pageObject.pager.totalPages)">Last</a>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

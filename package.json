@@ -1,0 +1,9 @@
+{
+  "name": "Photos",
+  "devDependencies": {
+    "bower": "^1.7.7"
+  },
+	"scripts": {
+    "postinstall": "bower install"
+  }
+}

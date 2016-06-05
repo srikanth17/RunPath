@@ -1,0 +1,7 @@
+{
+  "name": "Photos",
+  "dependencies": {
+    "angular": "1.5.x",
+    "bootstrap": "3.3.x"
+  }
+}
